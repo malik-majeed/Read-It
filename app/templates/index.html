@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+    <form class="ui form" action="{{ url_for('read_article') }}" method="post">
+        <div class="field">
+          <label></label>Place URL</label>
+          <input type="text" name="url" placeholder="https://en.wikipedia.org/wiki/42">
+
+          <div class="ui celled relaxed list">
+            <div class="item">
+              <div class="ui master checkbox">
+                <input type="checkbox" name="selectAll">
+                <label>Select all</label>
+              </div>
+              <div class="list">
+                <div class="item orientation">
+                  <div class="ui child checkbox">
+                    <input type="checkbox" name="title">
+                    <label>Title</label>
+                  </div>
+                </div>
+                <div class="item orientation">
+                  <div class="ui child checkbox">
+                    <input type="checkbox" name="text">
+                    <label>text</label>
+                  </div>
+                </div>
+                <div class="item orientation">
+                  <div class="ui child checkbox">
+                    <input type="checkbox" name="author">
+                    <label>author</label>
+                  </div>
+                </div>
+                <div class="item orientation">
+                  <div class="ui child checkbox">
+                    <input type="checkbox" name="publishDate">
+                    <label>Publish-date</label>
+                  </div>
+                </div>
+                <div class="item orientation">
+                  <div class="ui child checkbox">
+                    <input type="checkbox" name="keywords">
+                    <label>Keywords</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+      </form>
+
+      {% if invalid_url %}
+      <div class="ui negative message">
+        <i class="close icon"></i>
+        <div class="header">
+          Ups, an error occurred
+        </div>
+        <p>{{ error_message }}</p>
+      </div>
+      {% endif %}
+
+</main>
+
+<script>
+  $('.list .master.checkbox')
+  .checkbox({
+    // check all children
+    onChecked: function() {
+      var
+        $childCheckbox  = $(this).closest('.checkbox').siblings('.list').find('.checkbox')
+      ;
+      $childCheckbox.checkbox('check');
+    },
+    // uncheck all children
+    onUnchecked: function() {
+      var
+        $childCheckbox  = $(this).closest('.checkbox').siblings('.list').find('.checkbox')
+      ;
+      $childCheckbox.checkbox('uncheck');
+    }
+  })
+;
+</script>
+
+{% endblock %}

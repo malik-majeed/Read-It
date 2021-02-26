@@ -1,0 +1,52 @@
+@media (min-width:320px)  {
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    .handlepaadding{
+        padding: 30px 20px 30px 30px !important;
+    }
+}
+
+@media (min-width:600px)  {
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    .handlepaadding{
+        padding: 40px 30px 40px 40px !important;
+    }
+    .orientation {
+        display: inline-block !important;
+    }
+}
+
+@media (min-width:801px)  {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .handlepaadding{
+        padding: 80px 70px 80px 80px !important;
+    }
+    .orientation {
+        display: inline-block !important;
+    }
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .handlepaadding{
+        padding: 100px 200px 100px 200px !important;
+    }
+    .orientation {
+        display: inline-block !important;
+    }
+}
+
+/* Global css */
+
+.spacer{
+    padding-top: 40px;
+}
+
+.boxShadow{
+    box-shadow: 0 3px 20px 2px rgb(0 0 0 / 25%);
+    border-radius: 15px;
+}
+
+body .ui.cards>.card{
+    box-shadow: none;
+  }
+  

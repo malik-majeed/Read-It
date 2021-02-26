@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+      {% if show_article %}
+
+      <div class="ui cards boxShadow">
+        <div class="card" style="width: 100%;">
+          <div class="content">
+            <div class="header">{{article_info.title}}</div>
+            <div class="meta">{{article_info.author}}</div>
+            <div class="meta">{{article_info.publishDate}}</div>
+            <div class="meta">{{article_info.keywords}}</div>
+            <div class="description" style="font-size:larger">
+              {% autoescape false %}
+                {{article_info.text | replace('\n', '<br>')}}
+              {% endautoescape %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+</main>
+
+{% endblock %}
