@@ -38,6 +38,8 @@ def process_url(url, params):
         if element_to_return[element] == None or element_to_return[element] == []:
             element_to_return[element] = ""
         if type(element_to_return[element]) == list:
-           element_to_return[element] = ''.join(element_to_return[element]) 
+           element_to_return[element] = ''.join(element_to_return[element])
+    image = article.top_image
+    element_to_return['image'] = image
     
     return element_to_return

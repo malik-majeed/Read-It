@@ -5,17 +5,22 @@
 <main>
       {% if show_article %}
 
-      <div class="ui cards boxShadow">
-        <div class="card" style="width: 100%;">
-          <div class="content">
-            <div class="header">{{article_info.title}}</div>
-            <div class="meta">{{article_info.author}}</div>
-            <div class="meta">{{article_info.publishDate}}</div>
-            <div class="meta">{{article_info.keywords}}</div>
+      <div class="ui items boxShadow">
+        <div class="item">
+          <div class="image" style="padding: 1em;">
+            <img src={{article_info.image}}>
+          </div>
+          <div class="content paddingCard">
+            <a class="header">{{article_info.title}}</a>
+            <div class="meta">
+              <span>{{article_info.author}}</span>
+              <span>{{article_info.publishDate}}</span>
+              <span>{{article_info.keywords}}</span>
+            </div>
             <div class="description" style="font-size:larger">
-              {% autoescape false %}
-                {{article_info.text | replace('\n', '<br>')}}
-              {% endautoescape %}
+                {% autoescape false %}
+                  {{article_info.text | replace('\n', '<br>')}}
+                {% endautoescape %}
             </div>
           </div>
         </div>
